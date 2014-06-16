@@ -81,7 +81,7 @@ def beginning(target, get_estimation=False, binary_mode=False, result_output='')
     NOTE: the steps 1, 2 and 3 can take a little more time depending on the target's size.
     """
     e = ''
-    print 'Step 1 of 4: getting number of files and total size.\n---\n'
+    print 'Step 1 of 3: getting number of files and total size.\n---\n'
     if get_estimation:
         e = estimate(target)
         c = convert(e[2], binary_mode)
@@ -169,7 +169,7 @@ def search(target, total_files, results_path=''):
     makedirs(RESULT_PATH)
     p = None
     z = 1
-    print 'Step 3 of 4: get all files.\n---'
+    print 'Step 2 of 3: get all files.\n---'
     if total_files is not None:
         widgets = [
             'Searching: ',
@@ -201,7 +201,7 @@ def search(target, total_files, results_path=''):
         p.finish()
     print '\n'
 
-    print 'Step 4 of 4: compare all files and display duplicates.\n---'
+    print 'Step 3 of 3: compare all files and display duplicates.\n---'
     z = 0
     r = None
     for name in listdir(RESULT_PATH):

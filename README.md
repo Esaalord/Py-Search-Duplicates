@@ -1,15 +1,15 @@
-Py Search Duplicates [1.0.0](First Release)
+Py Search Duplicates [1.0.0]
 ===========================================
 A Python2 script to search all duplicates files into a given directory recursively. It hash each file with the MD5 message-digest algorithm to compare each file and find who already exist.
 
 Table of content:
 -----------------
-1. [Read before use](#Read-before-use)
-2. [Requirements](#Requirements)
-3. [System compatibility](#System-compatibility)
-4. [Usage](#Usage)
-5. [Screenshots](#Screenshots)
-6. [Miscellaneous information](#Miscellaneous-information)
+1. [Read before use](#read-before-use)
+2. [Requirements](#requirements)
+3. [System compatibility](#system-compatibility)
+4. [Usage](#usage)
+5. [Screenshots](#screenshots)
+6. [Miscellaneous information](#miscellaneous-information)
 
 Read before use:
 ----------------
@@ -18,11 +18,11 @@ Please take awareness for the [MIT license](https://github.com/NyanKiyoshi/Py-Se
 Requirements:
 -------------
 1. This Python script must be run with __Python 2.x__.
-2. It can be run on the system supporting the Linux Kernel and Windows 7 (see the "System compatibility" section for more information).
+2. It can be run on these systems tested: the systems supporting the Linux Kernel, Windows 7 and Windows XP (see the "System compatibility" section for more information).
 
 System compatibility:
 ---------------------
-On Windows system you should use doubles-quotes ("[...]") instead of singles-quotes ('[...]'), for example instead of search.py -p 'C:/directory/' please use  search.py -p "C:/directory/".
+On Windows systems you should use doubles-quotes ("[...]") instead of singles-quotes ('[...]'), for example instead of search.py -p 'C:/directory/' please use  search.py -p "C:/directory/".
 
 | Tested system name                                | Works |
 | ------------------------------------------------- | ----- |
@@ -31,36 +31,49 @@ On Windows system you should use doubles-quotes ("[...]") instead of singles-quo
 
 Usage:
 ------
+
+__MAJOR NOTE FOR WINDOWS USER__: on Windows systems you should use doubles-quotes ("[...]") instead of singles-quotes ('[...]'), for example instead of search.py -p 'C:/directory/' please use  search.py -p "C:/directory/".
+
 ```bash
-MAJOR NOTE FOR WINDOWS USER: on Windows system you should use doubles-quotes ("[...]") instead of singles-quotes ('[...]'), for example instead of search.py -p 'C:/directory/' please use  search.py -p "C:/directory/".
-
-    -p, --path=PATH
-            The path to search duplicates files.
-            Usage examples:
-                * -p "~/music"
-                * --path="/usr/share/"
-
-    -r, --result=PATH
-            The file path where write the results displayed if you want save it.
-            Usage examples:
-                * -r "~/logs/search_results.txt"
-                * result="./results.log"
-
-    --no-estimation:
-            If you don't want an estimation before proceed. The estimation display the total files and the current size of directory (recursively) and allow a progress bar.
-
-    -b, --binary:
-            If you want an estimation in binary mode (KiB, MiB, GiB, etc.) instead of the default in decimal (KB, MB, GB, etc.).
-
-
-FEW EXAMPLES:
-    * I would like search duplicates into '~/music' with an estimation and in binary mode without writing the output result. I can use:
-        search.py -p "~/music" --binary
-
-    * I'm a Windows user, I would like search into 'C:\Documents and Settings\user' and write the output result in 'C:\Documents and Settings\user\Desktop\results.txt' and I want an estimation. I use:
-        search.py --path="C:\Documents and Settings\user" -r "C:\Documents and Settings\user\Desktop\results.txt" --no-estimation
-
+-p, --path=PATH
 ```
+The path to search duplicates files.
+Usage examples:
+* -p "~/music"
+* --path="/usr/share/"
+    
+
+```bash
+-r, --result=PATH
+```
+The file path where write the results displayed if you want save it.
+Usage examples:
+* -r "~/logs/search_results.txt"
+* result="./results.log"
+
+```bash
+--no-estimation:
+```
+If you don't want an estimation before proceed. The estimation display the total files and the current size of directory (recursively) and allow a progress bar.
+
+```bash
+-b, --binary:
+```
+If you want an estimation in binary mode (KiB, MiB, GiB, etc.) instead of the default in decimal (KB, MB, GB, etc.).
+
+
+###### FEW EXAMPLES:
+* I would like search duplicates into '~/music' with an estimation and in binary mode without writing the output result. I can use:
+```bash
+search.py -p "~/music" --binary
+```
+
+* I'm a Windows user, I would like search into 'C:\Documents and Settings\user' and write the output result in 'C:\Documents and Settings\user\Desktop\results.txt' and I want an estimation. I use:
+```bash
+search.py --path="C:\Documents and Settings\user" -r "C:\Documents and Settings\user\Desktop\results.txt" --no-estimation
+```
+
+
 
 Screenshots:
 ------------

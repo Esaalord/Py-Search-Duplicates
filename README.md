@@ -18,15 +18,16 @@ Please take awareness for the [MIT license](https://github.com/NyanKiyoshi/Py-Se
 Requirements:
 -------------
 1. This Python script must be run with __Python 2.x__.
-2. It can be run on these systems tested: the systems supporting the Linux Kernel, Windows 7 and Windows XP (see the "[System compatibility](#system-compatibility)" section below for more information).
+2. It can be run on these systems tested: POSIX systems, Windows 7 and Windows XP (see the "[System compatibility](#system-compatibility)" section below for more information).
 
 System compatibility:
 ---------------------
 On Windows systems you should use doubles-quotes ("[...]") instead of singles-quotes ('[...]'), for example instead of search.py -p 'C:/directory/' please use  search.py -p "C:/directory/".
 
-| Tested system name                                 | Works |
+| Tested systems                                     | Works |
 | -------------------------------------------------- | ----- |
 | Linux systems like Ubuntu, Debian, ArchLinux, etc. |  Yes  |
+| FreeBSD                                            |  Yes  |
 | Windows 7, Windows XP (SP3, SP2)                   |  Yes  |
 
 Usage:
@@ -77,10 +78,10 @@ search.py --path="C:\Documents and Settings\user" -r "C:\Documents and Settings\
 
 Screenshots:
 ------------
-![screenshot0](http://i.imgur.com/YeEhgrf.png)
-![screenshot1](http://i.imgur.com/TBvrpyB.png)
-![screenshot2](http://i.imgur.com/XF0lwJg.png)
-![screenshot3](http://i.imgur.com/eX2FS3o.png)
+![screenshot0](http://i.imgur.com/cNsCz7i.png)
+![screenshot1](http://i.imgur.com/IfUmjKl.png)
+![screenshot2](http://i.imgur.com/H8dMLzX.png)
+![screenshot3](http://i.imgur.com/OQobDas.png)
 
 Miscellaneous information:
 --------------------------

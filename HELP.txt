@@ -12,10 +12,10 @@ MAJOR NOTE FOR WINDOWS USER: on Windows system you should use doubles-quotes ("[
                 * -r "~/logs/search_results.txt"
                 * result="./results.log"
 
-    --no-estimation:
+    --no-estimation
             If you don't want an estimation before proceed. The estimation display the total files and the current size of directory (recursively) and allow a progress bar.
 
-    -b, --binary:
+    -b, --binary
             If you want an estimation in binary mode (KiB, MiB, GiB, etc.) instead of the default in decimal (KB, MB, GB, etc.).
 
 

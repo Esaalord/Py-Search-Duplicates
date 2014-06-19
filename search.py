@@ -239,7 +239,7 @@ def search(target, total_files, results_path=''):
             if results_path != '':
                 try:
                     with open(results_path, 'a') as r:
-                        r.write(str(z) + '\n---\n')
+                        r.write('# ' + str(z) + '\n# ---\n')
                 except IOError or OSError:
                     pass
             for l in f:
@@ -247,7 +247,7 @@ def search(target, total_files, results_path=''):
                 if results_path != '':
                     try:
                         with open(results_path, 'a') as r:
-                            r.write(' ' * 4 + ' * ' + l + '\n')
+                            r.write(l + '\r')
                     except IOError or OSError:
                         pass
             print '\n'
@@ -256,7 +256,7 @@ def search(target, total_files, results_path=''):
         if results_path != '':
             with open(results_path, 'a') as r:
                 try:
-                    r.write('No duplicate found. Good job! \\(^o^)/')
+                    r.write('# No duplicate found. Good job! \\(^o^)/')
                 except IOError or OSError:
                     pass
     rmtree(RESULT_PATH)

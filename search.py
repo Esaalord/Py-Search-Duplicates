@@ -178,7 +178,7 @@ def calc(start, end):
         = 0.4166666666666667 * 100
         = 41.66666666666667
     """
-    return (start / float(end)) * 100
+    return ((start / float(end)) * 100) <= 100 and ((start / float(end)) * 100) or 100
 
 
 def search(target, total_files, results_path=''):

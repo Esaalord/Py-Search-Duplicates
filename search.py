@@ -247,7 +247,7 @@ def search(target, total_files, results_path=''):
                 if results_path != '':
                     try:
                         with open(results_path, 'a') as r:
-                            r.write(l + '\r')
+                            r.write(l)
                     except IOError or OSError:
                         pass
             print '\n'

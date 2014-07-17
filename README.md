@@ -79,7 +79,7 @@ search.py --path="C:\Documents and Settings\user" -r "C:\Documents and Settings\
 Screenshots:
 ------------
 ![screenshot0](http://i.imgur.com/cNsCz7i.png)
-![screenshot1](http://i.imgur.com/IfUmjKl.png)
+![screenshot1](http://i.imgur.com/8MAd52p.png)
 ![screenshot2](http://i.imgur.com/H8dMLzX.png)
 ![screenshot3](http://i.imgur.com/OQobDas.png)
 

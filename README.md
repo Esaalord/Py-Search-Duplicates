@@ -1,4 +1,4 @@
-Py Search Duplicates [1.0.0]
+Py Search Duplicates [1.0.1]
 ===========================================
 A Python2 script to search all duplicates files into a given directory recursively. It hash each file with the MD5 message-digest algorithm to compare each file and find who already exist.
 

@@ -1,3 +1,6 @@
+Py Search Duplicates [1.1] @ https://github.com/NyanKiyoshi/
+---------
+
 MAJOR NOTE FOR WINDOWS USER: on Windows system you should use doubles-quotes ("[...]") instead of singles-quotes ('[...]'), for example instead of search.py -p 'C:/directory/' please use  search.py -p "C:/directory/".
 
     -p, --path=PATH

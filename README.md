@@ -4,12 +4,10 @@ A Python2 script to search all duplicates files into a given directory recursive
 
 Table of content:
 -----------------
-1. [Read before use](#read-before-use)
-2. [Requirements](#requirements)
-3. [System compatibility](#system-compatibility)
-4. [Usage](#usage)
-5. [Screenshots](#screenshots)
-6. [Miscellaneous information](#miscellaneous-information)
+1. [Introduction](http://nyankiyoshi.github.io/docs/py-search-duplicates/1.1/index.html)
+2. [Requirements and Downloads](http://nyankiyoshi.github.io/docs/py-search-duplicates/1.1/download.html)
+4. [Usage](http://nyankiyoshi.github.io/docs/py-search-duplicates/1.1/usage.html)
+4. [ChangeLog](http://nyankiyoshi.github.io/docs/py-search-duplicates/changelog.html#1.1)
 
 Documentation:
 --------------

@@ -53,7 +53,7 @@ from getopt import getopt, GetoptError
 from sys import argv
 #from re import match, compile as recompile
 
-__VERSION__ = '1.1.0', '(release date: August 17, 2014)[RELEASE 3]'
+__VERSION__ = '1.1.1', '(release date: August 18, 2014)[RELEASE 4]'
 #file_pattern = recompile('(\w)+')
 RESULT_PATH = gettempdir() + '/search_duplicates_results/'
 OPT_NEGATION = ['n', 'no', 'no sir!']
@@ -622,6 +622,7 @@ def search(target, total_files, results_path=''):
                     raise IOError('Unable to save results into {results_path}'.format(results_path=results_path))
                 except OSError:
                     raise OSError('Unable to save results into {results_path}'.format(results_path=results_path))
+                without_rending = ''
     if n_duplicated_files + z > 25 and results_path == '':
         if raw_input(
                 'There is too many results to show, do you want to save it instead of displaying it? [y/n] '

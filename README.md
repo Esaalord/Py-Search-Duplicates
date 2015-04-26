@@ -15,6 +15,7 @@ Usage:
 usage: search.py [-h] [-p PATH] [-r RESULTS_PATH] [-b] [--md5]
 
 Arguments:
+```
   -p PATH, --path PATH  The path where search duplicated files.
   -r RESULTS_PATH, --results RESULTS_PATH
                         The file path where write the results displayed if you
@@ -24,6 +25,7 @@ Arguments:
                         GB, etc.).
   --md5                 Using the MD5 hash digest (slower) instead of the
                         CRC32.
+```
 
 Examples:
 ---------

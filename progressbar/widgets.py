@@ -123,7 +123,7 @@ class FileTransferSpeed(Widget):
 
     format = '%6.2f %s%s/s'
     prefixes = ' kMGTPEZY'
-    __slots__ = ('unit', 'format')
+    __slots__ = ('unit', 'format_')
 
     def __init__(self, unit='B'):
         self.unit = unit

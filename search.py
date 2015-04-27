@@ -153,7 +153,7 @@ The results will be displayed bellow after all was done.
 
 
 def translating_path(path):
-    if path[:1] == '~' and os_name == 'posix':
+    if path and path[:1] == '~' and os_name == 'posix':
         return expanduser('~') + path[1:]
     return path
 

@@ -8,6 +8,7 @@ from AnalysingFiles import AnalysingFiles
 from random import randint
 from progressbar import ProgressBar, Percentage, Bar, ETA
 from time import time, strftime, gmtime
+from math import log, floor
 input_ = raw_input if not version_info.major > 2 else input
 
 
@@ -100,17 +101,16 @@ def run_analyze(path, results_path, binary_mode, md5):
     del browsing
     print('\b'*18, end='')  # removing "Progressing... [.]"
     stdout.flush()
-    converted_size = convert(analyze.stats['size'], binary_mode)
+    converted_size = convert_size(analyze.stats['size'], binary_mode)
     print(
         """\
-At %(date)s, we had: %(number_files)d files in %(number_directories)d directories for %(total_size)s bytes\
-%(converted_size)s.
+At %(date)s, we had: %(number_files)d files in %(number_directories)d directories for about %(converted_size)s.
 We will begin to scan "%(path)s", please avoid to change files may to distort final results and the above estimates.
 
 The results will be displayed bellow after all was done.
 """ % {
             'date': strftime("%H:%M:%S", gmtime()), 'number_files': analyze.stats['files'],
-            'number_directories': analyze.stats['directories'], 'total_size': analyze.stats['size'],
+            'number_directories': analyze.stats['directories'],
             'converted_size': (converted_size and ' whether about {0}'.format(converted_size) or ''),
             'path': path,
         }
@@ -172,37 +172,24 @@ def is_invalid_path(path):
         return True, e
 
 
-def convert(block, binary=False):
+def convert_size(n_bytes, binary_prefix):
     """
-    It choose between an unit (KB, MB, GB or TB) according with the bytes block given either in binary mode (1024) or
-    decimal mode (10^2).
+    Converts bytes into human readable using the binary or decimal prefix. It returns a result with the following
+    format: "{NEW_VALUE}{UNIT_VALUE}". If the number of bytes is null (0), it returns `0B`.
 
-    :param block: An integer in bytes.
-    :param binary: A boolean to activate or not the binary mode.
-    :return: The new value with the unit at the end of the string or False if it stay in bytes.
+    :param n_bytes: The number of bytes.
+    :type n_bytes int:
+    :param binary_prefix: Returning as binary or as decimal prefix.
+    :type binary_prefix bool:
+    :return:
     """
-    if not binary:
-        if 10**3 <= block < 10**6:
-            return '%s KB' % (block / 10**3)
-        elif 10**6 <= block < 10**9:
-            return '%s MB' % (block / 10**6)
-        elif 10**9 <= block < 10**12:
-            return '%s GB' % (block / 10**9)
-        elif block >= 10**12:
-            return '%s TB' % (block / 10**12)
-        else:
-            return False
-    else:
-        if 2**10 <= block < 2**20:
-            return '%s KiB' % (block / 2**10)
-        elif 2**20 <= block < 2**30:
-            return '%s MiB' % (block / 2**20)
-        elif 2**30 <= block < 2**40:
-            return '%s GiB' % (block / 2**30)
-        elif block >= 2**40:
-            return '%s TiB' % (block / 2**40)
-        else:
-            return False
+    if not n_bytes:
+        return '0B'
+    # using the binary prefix or the decimal one
+    prefix, units = (1024, ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']) \
+        if binary_prefix else (1000, ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'])
+    exponent = min(floor(log(n_bytes) / log(prefix)), len(units) - 1)
+    return '%.2f%s' % ((n_bytes / prefix ** exponent), units[int(exponent)])
 
 
 def export_results(destination, results):
@@ -224,7 +211,7 @@ def export_results(destination, results):
                 )  # FIXME on Python3: the results contains the bytes chars `b'<PATH>'`
         else:
             for k in results.keys():
-                dest.write('\n\n# %s\n%s' % (k,  '\n'.join(str(i) for i in results[k])))
+                dest.write('\n\n# %s\n%s' % (k,  '\n'.join(results[k])))
             dest.close()
 
 
@@ -236,8 +223,16 @@ def print_results(results):
     :return:
     """
     print('\nDuplicates are:')
-    for k in results.keys():
-        print('\n# %s\n\t%s' % (k, '\n\t'.join(results[k])))
+    if version_info.major > 2:
+            for k in results.keys():
+                print(
+                    '\n# %s\n\t%s' % (
+                        k,  '\n\t'.join(str(i.encode('utf-8', errors="surrogateescape")) for i in results[k])
+                    )
+                )  # FIXME on Python3: the results contains the bytes chars `b'<PATH>'`
+    else:
+        for k in results.keys():
+            print('\n# %s\n\t%s' % (k, '\n\t'.join(results[k])))
 
 if __name__ == '__main__':
     main()

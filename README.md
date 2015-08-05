@@ -1,4 +1,4 @@
-Py Search Duplicates [2.0]
+Py Search Duplicates [2.1]
 ==========================
 A Python2 script to search all duplicates files into a given directory recursively under MIT [license](./LICENSE).
 It hash each files with the CRC32 (or MD5 if asked by using the "--md5" argument)

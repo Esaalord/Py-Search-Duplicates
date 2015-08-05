@@ -3,8 +3,8 @@ from __future__ import division
 from os import walk
 from os.path import abspath, join, getsize
 from hashlib import md5 as hashmd5
-from binascii import crc32
 from sys import version_info
+from zlib import crc32
 
 
 class AnalysingFiles:
@@ -105,10 +105,14 @@ class AnalysingFiles:
         """
         md5 = hashmd5()
         try:
-            data_file = open(path, 'rb').readlines()
+            with open(path, 'rb') as fd:
+                while 1:
+                    data = fd.read(2**9)
+                    if not data:
+                        break
+                    md5.update(data)
         except IOError:
             return False
-        [md5.update(l) for l in data_file]
         return md5.hexdigest()
 
     @staticmethod
@@ -120,6 +124,12 @@ class AnalysingFiles:
         :return:
         """
         try:
-            return crc32(open(path, 'rb').read())
+            with open(path, 'rb') as fd:
+                r = 0
+                while 1:
+                    data = fd.read(2**9)
+                    r = crc32(data, r)
+                    if not data:
+                        return "%8X" % (r & 0xFFFFFFFF)
         except IOError:
             return False

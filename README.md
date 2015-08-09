@@ -7,8 +7,6 @@ hash digest algorithm to compare each file and find which already exist after ha
 Notice:
 -------
 __Python2.6__ or higher is recommended but Python3 is highly __unrecommended__ even if this one is half-supported.
-Avoid to scan very big files unless if you have enough RAM to do that (like higher than 1GB or even more higher,
-depending of your RAM).
 
 Usage:
 --------------

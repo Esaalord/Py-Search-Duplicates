@@ -1,0 +1,4 @@
+import hashlib
+def md5hash():
+    x = raw_input("Enter yuor string")
+    print hashlib.md5(x)
